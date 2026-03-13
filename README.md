@@ -1,57 +1,76 @@
-Copy🚗 Dhaka Drive — Automobile Driving Training Institute
+# 🚗 Dhaka Drive — Automobile Driving Training Institute
 
-A web-based management system for a driving training institute, built as a System Design and Analysis project for East West University (CSE347 — Information System Analysis and Design).
+> A web-based management system for a driving training institute, built as a System Design and Analysis project for **East West University** (CSE347 — Information System Analysis and Design).
 
+---
 
-📋 Table of Contents
+## 📋 Table of Contents
 
-About the Project
-Features
-Tech Stack
-Project Structure
-Database Schema
-Getting Started
-Default Admin Credentials
-Course Offerings & Pricing
-System Design
-Team Members
-Limitations
-License
+- [About the Project](#about-the-project)
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Project Structure](#project-structure)
+- [Database Schema](#database-schema)
+- [Getting Started](#getting-started)
+- [Default Admin Credentials](#default-admin-credentials)
+- [Course Offerings & Pricing](#course-offerings--pricing)
+- [System Design](#system-design)
+- [Team Members](#team-members)
+- [Limitations](#limitations)
+- [License](#license)
 
+---
 
-About the Project
-Dhaka Drive is a full-stack web application that digitalises the day-to-day operations of a driving training institute. It provides a centralised platform where students can register, enrol in courses, make payments, track their progress, and access learning materials — while administrators can manage users, enrollments, scheduling, and communications from a single dashboard.
-The project was designed and developed following BRTA (Bangladesh Road Transport Authority) guidelines and is tailored for the Bangladeshi driving education context, supporting payment methods like bKash and Nagad.
+## About the Project
 
-Features
-👨‍🎓 Learner / Student
+**Dhaka Drive** is a full-stack web application that digitalises the day-to-day operations of a driving training institute. It provides a centralised platform where students can register, enrol in courses, make payments, track their progress, and access learning materials — while administrators can manage users, enrollments, scheduling, and communications from a single dashboard.
 
-Sign up with OTP-based email/phone verification
-Secure login with session management
-View and enrol in available driving courses
-Select preferred schedule and training location
-Pay course fees online (bKash / Nagad) or offline (cash)
-View payment history and transaction records
-Track enrollment and training status
-Access and download learning materials (PDFs, documents)
-Submit support requests / messages to admin
-Receive in-app notifications
+The project was designed and developed following BRTA (Bangladesh Road Transport Authority) guidelines and is tailored for the Bangladeshi driving education context, supporting payment methods like **bKash** and **Nagad**.
 
-🛠️ Admin
+---
 
-Manage all learner accounts (activate, suspend, block)
-Review and approve/reject enrollment requests
-Assign training locations and schedule slots
-Confirm offline payments
-Respond to learner support messages
-Monitor payment transactions
-View login history and user activity
+## Features
 
+### 👨‍🎓 Learner / Student
+- Sign up with OTP-based email/phone verification
+- Secure login with session management
+- View and enrol in available driving courses
+- Select preferred schedule and training location
+- Pay course fees online (bKash / Nagad) or offline (cash)
+- View payment history and transaction records
+- Track enrollment and training status
+- Access and download learning materials (PDFs, documents)
+- Submit support requests / messages to admin
+- Receive in-app notifications
 
-Tech Stack
-LayerTechnologyFrontendHTML5, CSS3, JavaScript (Vanilla)BackendPHP (procedural + OOP helpers)DatabaseMySQLSession HandlingPHP native sessionsPayment MethodsbKash, Nagad (manual gateway integration)StylingCustom CSS (css/style.css)Learning MaterialsPDF, DOCX (served as static files)
+### 🛠️ Admin
+- Manage all learner accounts (activate, suspend, block)
+- Review and approve/reject enrollment requests
+- Assign training locations and schedule slots
+- Confirm offline payments
+- Respond to learner support messages
+- Monitor payment transactions
+- View login history and user activity
 
-Project Structure
+---
+
+## Tech Stack
+
+| Layer | Technology |
+|---|---|
+| Frontend | HTML5, CSS3, JavaScript (Vanilla) |
+| Backend | PHP (procedural + OOP helpers) |
+| Database | MySQL |
+| Session Handling | PHP native sessions |
+| Payment Methods | bKash, Nagad (manual gateway integration) |
+| Styling | Custom CSS (`css/style.css`) |
+| Learning Materials | PDF, DOCX (served as static files) |
+
+---
+
+## Project Structure
+
+```
 dhakadrive/
 │
 ├── index.php                  # Public landing / home page
@@ -101,86 +120,137 @@ dhakadrive/
 │
 ├── Picture/                   # Image assets
 └── dhakadrive_db.sql          # Full database schema + seed data
+```
 
-Database Schema
-The application uses the dhakadrive_db MySQL database with the following tables:
-TablePurposeusersStores all users (learners and admins). Fields include name, email, mobile, password (bcrypt), role, account_status, is_verified, otp, document_number, document_pathenrollmentsTracks course enrollments. Fields include user_id, course_name, preferred_location, assigned_location, status, scheduled_slot, payment_method, trx_idmessagesLearner–admin messaging. Fields include user_id, sender_role (user/admin), message, timestampnotificationsIn-app notifications per user. Fields include user_id, message, is_readlogin_historyTracks each login event per user with a timestamp
-All foreign keys reference the users table with ON DELETE CASCADE.
+---
 
-Getting Started
-Prerequisites
+## Database Schema
 
-PHP 7.4 or higher
-MySQL 5.7 or higher
-Apache/Nginx web server (or XAMPP / WAMP / MAMP for local development)
+The application uses the `dhakadrive_db` MySQL database with the following tables:
 
-Installation Steps
+| Table | Purpose |
+|---|---|
+| `users` | Stores all users (learners and admins). Fields include `name`, `email`, `mobile`, `password` (bcrypt), `role`, `account_status`, `is_verified`, `otp`, `document_number`, `document_path` |
+| `enrollments` | Tracks course enrollments. Fields include `user_id`, `course_name`, `preferred_location`, `assigned_location`, `status`, `scheduled_slot`, `payment_method`, `trx_id` |
+| `messages` | Learner–admin messaging. Fields include `user_id`, `sender_role` (user/admin), `message`, `timestamp` |
+| `notifications` | In-app notifications per user. Fields include `user_id`, `message`, `is_read` |
+| `login_history` | Tracks each login event per user with a timestamp |
 
-Clone or download the repository
+All foreign keys reference the `users` table with `ON DELETE CASCADE`.
 
-bash   git clone https://github.com/your-username/dhakadrive.git
+---
 
-Move to your web server's root directory
+## Getting Started
 
-bash   # For XAMPP on Windows:
+### Prerequisites
+
+- PHP 7.4 or higher
+- MySQL 5.7 or higher
+- Apache/Nginx web server (or XAMPP / WAMP / MAMP for local development)
+
+### Installation Steps
+
+1. **Clone or download the repository**
+   ```bash
+   git clone https://github.com/your-username/dhakadrive.git
+   ```
+
+2. **Move to your web server's root directory**
+   ```bash
+   # For XAMPP on Windows:
    cp -r dhakadrive/ C:/xampp/htdocs/dhakadrive/
 
    # For Linux Apache:
    cp -r dhakadrive/ /var/www/html/dhakadrive/
+   ```
 
-Import the database
+3. **Import the database**
+   - Open **phpMyAdmin** (or any MySQL client)
+   - Create a new database named `dhakadrive_db`
+   - Import the file: `dhakadrive/dhakadrive_db.sql`
 
-Open phpMyAdmin (or any MySQL client)
-Create a new database named dhakadrive_db
-Import the file: dhakadrive/dhakadrive_db.sql
+4. **Configure the database connection**
 
-
-Configure the database connection
-Open config.php and update if needed:
-
-php   define('DB_SERVER', 'localhost');
+   Open `config.php` and update if needed:
+   ```php
+   define('DB_SERVER', 'localhost');
    define('DB_USERNAME', 'root');
    define('DB_PASSWORD', '');       // update with your MySQL password
    define('DB_NAME', 'dhakadrive_db');
+   ```
 
-Start your web server and visit:
-
+5. **Start your web server and visit:**
+   ```
    http://localhost/dhakadrive/
+   ```
 
-Default Admin Credentials
+---
+
+## Default Admin Credentials
+
 After importing the database, a default admin account is seeded:
-FieldValueEmailadmin@dhakadrive.comPasswordadmin123 (bcrypt hashed in DB)Roleadmin
 
-⚠️ Change the default admin password immediately in a production environment.
+| Field | Value |
+|---|---|
+| Email | `admin@dhakadrive.com` |
+| Password | `admin123` *(bcrypt hashed in DB)* |
+| Role | `admin` |
 
+> ⚠️ **Change the default admin password immediately** in a production environment.
 
-Course Offerings & Pricing
-CoursePrice (BDT)Car Driving Course (Manual & Auto)৳5,000Motorcycle Riding Course৳3,000Scooter Riding Lessons৳2,500Bicycle Safety Program৳1,000
+---
 
-System Design
+## Course Offerings & Pricing
+
+| Course | Price (BDT) |
+|---|---|
+| Car Driving Course (Manual & Auto) | ৳5,000 |
+| Motorcycle Riding Course | ৳3,000 |
+| Scooter Riding Lessons | ৳2,500 |
+| Bicycle Safety Program | ৳1,000 |
+
+---
+
+## System Design
+
 This project was built following a structured system analysis and design methodology. Below is a summary of the key design artefacts documented in the project report:
 
-Use Case Diagram — Covers Learner (new/old) and Admin actors with interactions including Sign-up, OTP verification, course enrollment, payments, messaging, and schedule management.
-Activity Diagrams — Detailed flows for Login, Payment, Enrollment, and Learning Material Access.
-Class Diagram — Core classes: User, Admin, Learner, Trainer, Course, Enrollment, Payment, Schedule, Message.
-Data Flow Diagrams (Level 0 & Level 1) — Showing data exchange between Learner, Admin, Trainer, and the system.
-E-R Diagram — Entity relationships across users, enrollments, payments, materials, notifications, messages, conversations, and support_requests.
-Sequence Diagram — Full flow from Sign-up → OTP → Login → Enrollment → Payment → Admin notification → Learning material access.
+- **Use Case Diagram** — Covers Learner (new/old) and Admin actors with interactions including Sign-up, OTP verification, course enrollment, payments, messaging, and schedule management.
+- **Activity Diagrams** — Detailed flows for Login, Payment, Enrollment, and Learning Material Access.
+- **Class Diagram** — Core classes: `User`, `Admin`, `Learner`, `Trainer`, `Course`, `Enrollment`, `Payment`, `Schedule`, `Message`.
+- **Data Flow Diagrams (Level 0 & Level 1)** — Showing data exchange between Learner, Admin, Trainer, and the system.
+- **E-R Diagram** — Entity relationships across `users`, `enrollments`, `payments`, `materials`, `notifications`, `messages`, `conversations`, and `support_requests`.
+- **Sequence Diagram** — Full flow from Sign-up → OTP → Login → Enrollment → Payment → Admin notification → Learning material access.
 
+---
 
-Team Members
-NameStudent IDAhsiul Karim2022-3-60-074Sadia Afrin2022-2-60-088Tina Ali2022-1-60-320Jahir Hasan Biddut2022-1-60-096
-Instructor: Md. Sabbir Hossain — Lecturer, Dept. of Computer Science and Engineering, East West University
-Course: CSE347 — Information System Analysis and Design | Submission Date: 30-08-2025
+## Team Members
 
-Limitations
+| Name | Student ID |
+|---|---|
+| Ahsiul Karim | 2022-3-60-074 |
+| Sadia Afrin | 2022-2-60-088 |
+| Tina Ali | 2022-1-60-320 |
+| Jahir Hasan Biddut | 2022-1-60-096 |
 
-Limited scalability — The system is designed specifically for Dhaka Drive and would require customisation for other institutes.
-Internet dependency — Features such as online registration and progress tracking require a stable internet connection.
-Hardware constraints — May face performance issues on low-end devices.
-Manual data entry errors — Attendance and test result inputs are still manually entered and prone to human error.
-No real-time driving feedback — Practical performance evaluation remains instructor-dependent with no automated analysis.
+**Instructor:** Md. Sabbir Hossain — Lecturer, Dept. of Computer Science and Engineering, East West University
 
+**Course:** CSE347 — Information System Analysis and Design | **Submission Date:** 30-08-2025
 
-License
+---
+
+## Limitations
+
+1. **Limited scalability** — The system is designed specifically for Dhaka Drive and would require customisation for other institutes.
+2. **Internet dependency** — Features such as online registration and progress tracking require a stable internet connection.
+3. **Hardware constraints** — May face performance issues on low-end devices.
+4. **Manual data entry errors** — Attendance and test result inputs are still manually entered and prone to human error.
+5. **No real-time driving feedback** — Practical performance evaluation remains instructor-dependent with no automated analysis.
+
+---
+
+## License
+
 This project was developed for academic purposes under East West University. All rights reserved by the project group members.
+
+---
