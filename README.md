@@ -255,4 +255,4 @@ This project was developed for academic purposes under East West University. All
 
 ---
 
-> *"Your Journey to Safe Driving Starts From Here."* 🚦
+
