@@ -241,6 +241,20 @@ Individual course pages display pricing (e.g., Motorcycle Riding — BDT 3,000),
 
 ---
 
+### Our Driving Courses Section
+![Our Driving Courses Section](images/OurDrivingCoursesSection.jpg)
+
+The homepage features a dedicated "Our Driving Courses" section showcasing the available courses as cards with images, a brief description of who the course is perfect for, what learners will gain, and a "View Details" button linking to the full course page.
+
+---
+
+### Student Testimonials & Contact Section
+![Student Testimonials & Contact Section](images/StudentTestimonials&ContactSection.jpg)
+
+The "What Our Students Say" section highlights real student feedback. Below it, the "Get Started Today!" section provides the institute's phone number, email, and physical location (House 123, Road 4, Dhanmondi, Dhaka-1205), alongside a "Call Us Now" button.
+
+---
+
 ## ⚙️ Installation & Setup
 
 ### Prerequisites
