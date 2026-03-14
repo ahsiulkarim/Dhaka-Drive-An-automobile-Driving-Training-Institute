@@ -355,7 +355,3 @@ The "What Our Students Say" section highlights real student feedback. Below it, 
 This project was developed for academic purposes under East West University's CSE347 course. All rights reserved by the project group.
 
 ---
-
-<p align="center">
-  Made with ❤️ by Group — East West University, Bangladesh
-</p>
