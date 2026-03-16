@@ -349,9 +349,3 @@ The "What Our Students Say" section highlights real student feedback. Below it, 
 - 📜 Digital certificate generation and BRTA portal integration
 
 ---
-
-## 📄 License
-
-This project was developed for academic purposes under East West University's CSE347 course. All rights reserved by the project group.
-
----
